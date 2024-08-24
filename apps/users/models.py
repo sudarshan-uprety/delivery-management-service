@@ -4,14 +4,8 @@ from django.core.validators import RegexValidator
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 
-from apps.users.manager import CustomUserManager
-
-
-class UserRole(models.TextChoices):
-    SUPERADMIN = 'SA', 'Superadmin'
-    ADMIN = 'A', 'Admin'
-    DELIVERY_BOY = 'DB', 'Delivery Boy'
-    STAFF = 'ST', 'Staff'
+from .manager import CustomUserManager
+from apps.users.choices import UserRole
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -25,7 +19,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         null=True
     )
     full_name = models.CharField(_('full name'), max_length=255, blank=True)
-    role = models.CharField(max_length=2, choices=UserRole.choices)
+    role = models.CharField(max_length=2, choices=UserRole.choices, default=UserRole.STAFF)
     is_active = models.BooleanField(_('active'), default=True)
     is_staff = models.BooleanField(_('staff status'), default=False)
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
@@ -60,23 +54,27 @@ class User(AbstractBaseUser, PermissionsMixin):
     def is_regular_staff(self):
         return self.role == UserRole.STAFF
 
+
 class SuperadminManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(role=UserRole.SUPERADMIN)
+
 
 class AdminManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(role=UserRole.ADMIN)
 
+
 class DeliveryBoyManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(role=UserRole.DELIVERY_BOY)
+
 
 class StaffManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(role=UserRole.STAFF)
 
-# Add these managers to the User model
+
 User.superadmins = SuperadminManager()
 User.admins = AdminManager()
 User.delivery_boys = DeliveryBoyManager()
