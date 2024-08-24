@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 from apps.users.choices import UserRole
 
+
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password, **extra_fields):
         if not email:

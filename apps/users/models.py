@@ -4,11 +4,12 @@ from django.core.validators import RegexValidator
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 
-from .manager import CustomUserManager
+from apps.users.manager import CustomUserManager
 from apps.users.choices import UserRole
+from apps.common.models import Common
 
 
-class User(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin, Common):
     email = models.EmailField(_('email address'), unique=True)
     username = models.CharField(
         _('username'),
