@@ -53,7 +53,9 @@ LOCAL_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-
+    # Crispy Forms
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 INSTALLED_APPS = INBUILD_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -85,7 +87,7 @@ TEMPLATES = [
         },
     },
 ]
-
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 WSGI_APPLICATION = 'core.wsgi.application'
 AUTH_USER_MODEL = 'users.User'
 
