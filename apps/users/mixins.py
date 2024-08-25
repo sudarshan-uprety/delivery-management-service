@@ -19,7 +19,7 @@ class GuestMixin:
         return redirect(self.redirect_url)
 
 
-class LoginMixin(GuestMixin, FormView):
+class LoginMixin( GuestMixin,FormView):
 
     def get_redirect_url(self):
         if self.request.GET.get('next'):

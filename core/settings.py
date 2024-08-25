@@ -53,7 +53,7 @@ LOCAL_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    # Crispy Forms
+    "corsheaders",
     "crispy_forms",
     "crispy_bootstrap5",
 ]
@@ -87,6 +87,7 @@ TEMPLATES = [
         },
     },
 ]
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 WSGI_APPLICATION = 'core.wsgi.application'
 AUTH_USER_MODEL = 'users.User'
@@ -126,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kathmandu'
 
 USE_I18N = True
 
