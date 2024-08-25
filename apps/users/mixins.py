@@ -19,7 +19,7 @@ class GuestMixin:
         return redirect(self.redirect_url)
 
 
-class LoginMixin( GuestMixin,FormView):
+class LoginMixin(GuestMixin, FormView):
 
     def get_redirect_url(self):
         if self.request.GET.get('next'):
@@ -42,3 +42,26 @@ class LoginMixin( GuestMixin,FormView):
                 return redirect(self.get_redirect_url())
 
         return redirect(self.get_login_url())
+
+
+class GroupRequiredMixin:
+    group_required = []
+
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+
+class PermissionRequiredMixin:
+    permission_required = None
+
+    def dispatch(self, request, *args, **kwargs):
+        if not self.permission_required:
+            raise ValueError("PermissionRequiredMixin requires 'permission_required' attribute to be set.")
+
+        if not request.user.has_perm(self.permission_required):
+            return render(request, '403.html', {
+                'error_message': "You don't have permission to access this page",
+                'sub_error_message': 'Contact your admin for assistance.'
+            }, status=403)
+
+        return super().dispatch(request, *args, **kwargs)

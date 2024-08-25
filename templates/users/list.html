@@ -1,0 +1,21 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block title %}Users list{% endblock title %}
+{% block extra_css %}
+        <!-- plugin css -->
+
+        <link href="{% static 'libs/jsvectormap/dist/css/jsvectormap.min.css'%}" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{% endblock extra_css %}
+{% block content %}
+
+{% block footer %}
+{% include "partials/footer.html" %}
+{% endblock footer %}
+{% endblock content %}
+{% block extra_js %}
+    <!-- Dashboard init -->
+    <script  src="{% static 'js/pages/dashboard-analytics.init.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+{% endblock extra_js %}

@@ -20,6 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('users/', include('apps.users.urls')),
 ]
 urlpatterns += path('', include('apps.dashboard.urls')),
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
