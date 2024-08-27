@@ -6,12 +6,12 @@ from django.contrib.auth import authenticate, login, logout
 
 
 class AuthMixin(LoginRequiredMixin):
-    login_url = reverse_lazy('dashboard:login')
+    login_url = reverse_lazy('dashboards:login')
 
 
 class GuestMixin:
-    redirect_url = reverse_lazy('dashboard:index')
-    login_url = reverse_lazy('dashboard:index')
+    redirect_url = reverse_lazy('dashboards:index')
+    login_url = reverse_lazy('dashboards:index')
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:

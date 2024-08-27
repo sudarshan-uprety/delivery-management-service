@@ -115,7 +115,7 @@
                                 </div>
 
                                 <div class="text-center pt-3 pb-1">
-                                    <a href="{% url 'pages:pages.search_results' %}" class="btn btn-primary btn-sm">View All Results <i
+                                    <a href="{% url 'dashboards:dashboard' %}" class="btn btn-primary btn-sm">View All Results <i
                                             class="ri-arrow-right-line ms-1"></i></a>
                                 </div>
                             </div>
@@ -146,11 +146,6 @@
                         </div>
 
                         <div class="dropdown ms-1 topbar-head-dropdown header-item">
-                            <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img id="header-lang-img" src="{% static 'images/flags/us.svg'%}" alt="Header Language" height="20"
-                                    class="rounded">
-                            </button>
                             <div class="dropdown-menu dropdown-menu-end">
 
                                 <!-- item-->
@@ -306,7 +301,7 @@
                                                 <img src="{% static 'images/products/img-1.png' %}" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
-                                                        <a href="{% url 'apps:ecommerce.products' %}" class="text-reset">Branded
+                                                        <a href="{% url 'dashboards:dashboard' %}" class="text-reset">Branded
                                                             T-Shirts</a>
                                                     </h6>
                                                     <p class="mb-0 fs-12 text-muted">
@@ -327,7 +322,7 @@
                                                 <img src="{% static 'images/products/img-2.png' %}" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
-                                                        <a href="{% url 'apps:ecommerce.products' %}" class="text-reset">Bentwood Chair</a>
+                                                        <a href="{% url 'dashboards:dashboard' %}" class="text-reset">Bentwood Chair</a>
                                                     </h6>
                                                     <p class="mb-0 fs-12 text-muted">
                                                         Quantity: <span>5 x $18</span>
@@ -347,7 +342,7 @@
                                                 <img src="{% static 'images/products/img-3.png' %}" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
-                                                        <a href="{% url 'apps:ecommerce.products' %}" class="text-reset">
+                                                        <a href="{% url 'dashboards:dashboard' %}" class="text-reset">
                                                             Borosil Paper Cup</a>
                                                     </h6>
                                                     <p class="mb-0 fs-12 text-muted">
@@ -368,7 +363,7 @@
                                                 <img src="{% static 'images/products/img-6.png' %}" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
-                                                        <a href="{% url 'apps:ecommerce.products' %}" class="text-reset">Gray
+                                                        <a href="{% url 'dashboards:dashboard' %}" class="text-reset">Gray
                                                             Styled T-Shirt</a>
                                                     </h6>
                                                     <p class="mb-0 fs-12 text-muted">
@@ -389,7 +384,7 @@
                                                 <img src="{% static 'images/products/img-5.png' %}" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
-                                                        <a href="{% url 'apps:ecommerce.products' %}" class="text-reset">Stillbird Helmet</a>
+                                                        <a href="{% url 'dashboards:dashboard' %}" class="text-reset">Stillbird Helmet</a>
                                                     </h6>
                                                     <p class="mb-0 fs-12 text-muted">
                                                         Quantity: <span>2 x $495</span>
@@ -413,7 +408,7 @@
                                         </div>
                                     </div>
 
-                                    <a href="{% url 'apps:ecommerce.checkout' %}" class="btn btn-success text-center w-100">
+                                    <a href="{% url 'dashboards:dashboard' %}" class="btn btn-success text-center w-100">
                                         Checkout
                                     </a>
                                 </div>
@@ -716,41 +711,41 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
                                 <h6 class="dropdown-header">Welcome Anna!</h6>
-                                <a class="dropdown-item" href="{% url 'pages:pages.profile' %}"><i
+                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Profile</span></a>
-                                <a class="dropdown-item" href="{% url 'apps:chat'%}"><i
+                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
                                         class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Messages</span></a>
-                                <a class="dropdown-item" href="{% url 'apps:tasks.kanban' %}"><i
+                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
                                         class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Taskboard</span></a>
-                                <a class="dropdown-item" href="{% url 'pages:pages.faqs' %}"><i
+                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
                                         class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Help</span></a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{% url 'pages:pages.profile' %}"><i
+                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
                                         class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Balance : <b>$5971.67</b></span></a>
-                                <a class="dropdown-item" href="{% url 'pages:pages.profile_settings' %}"><span
+                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><span
                                         class="badge bg-success-subtle text-success mt-1 float-end">New</span><i
                                         class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Settings</span></a>
-                                <a class="dropdown-item" href="{% url 'pages:authentication.lockscreen_basic' %}"><i
+                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
                                         class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Lock screen</span></a>
                                 {% if user.is_authenticated %}
                                     {% if user.has_usable_password %}
-                                        <a class="dropdown-item" href="{% url 'account_change_password' %}">
+                                        <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}">
                                             <i class="mdi mdi-key text-muted fs-16 align-middle me-1"></i>
                                             <span class="align-middle" data-key="t-change-password">change password</span>
                                         </a>
                                     {% else %}
-                                        <a class="dropdown-item" href="{% url 'account_set_password' %}">
+                                        <a class="dropdown-item" href=>
                                             <i class="mdi mdi-key text-muted fs-16 align-middle me-1"></i>
                                             <span class="align-middle" data-key="t-set-password">Set Password</span>
                                         </a>
                                     {% endif %}
-                                        <a class="dropdown-item" href="{% url 'account_logout' %}">
+                                        <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}">
                                             <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
                                             <span class="align-middle" data-key="t-logout">Logout</span>
                                         </a>
