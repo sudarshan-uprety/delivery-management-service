@@ -51,6 +51,7 @@ LOCAL_APPS = [
     'apps.users',
     'apps.dashboards',
     'apps.orders',
+    'apps.orders',
 ]
 
 THIRD_PARTY_APPS = [
