@@ -10,8 +10,8 @@ class AuthMixin(LoginRequiredMixin):
 
 
 class GuestMixin:
-    redirect_url = reverse_lazy('dashboards:index')
-    login_url = reverse_lazy('dashboards:index')
+    redirect_url = reverse_lazy('dashboards:login')
+    login_url = reverse_lazy('dashboards:login')
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
