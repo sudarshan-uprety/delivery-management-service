@@ -50,6 +50,7 @@ INBUILD_APPS = [
 LOCAL_APPS = [
     'apps.users',
     'apps.dashboards',
+    'apps.orders',
 ]
 
 THIRD_PARTY_APPS = [
