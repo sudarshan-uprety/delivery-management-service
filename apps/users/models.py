@@ -6,10 +6,10 @@ from django.utils import timezone
 
 from apps.users.manager import CustomUserManager
 from apps.users.choices import UserRole
-from apps.common.models import Common
+from apps.common.models import BaseModel
 
 
-class User(AbstractBaseUser, PermissionsMixin, Common):
+class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     email = models.EmailField(_('email address'), unique=True)
     username = models.CharField(
         _('username'),
