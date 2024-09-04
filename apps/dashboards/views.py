@@ -4,7 +4,7 @@ from apps.users.mixins import AuthMixin
 
 
 class DashboardView(AuthMixin, TemplateView):
-    template_name = 'dashboards/dashboards.html'
+    template_name = 'dashboards/index.html'
     menu_active = 'dashboards'
 
     def get_context_data(self, **kwargs):

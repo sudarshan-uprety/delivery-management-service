@@ -146,6 +146,11 @@
                         </div>
 
                         <div class="dropdown ms-1 topbar-head-dropdown header-item">
+                            <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img id="header-lang-img" src="{% static 'images/flags/us.svg'%}" alt="Header Language" height="20"
+                                    class="rounded">
+                            </button>
                             <div class="dropdown-menu dropdown-menu-end">
 
                                 <!-- item-->
@@ -196,6 +201,7 @@
                                     <img src="{% static 'images/flags/french.svg'%}" alt="user-image" class="me-2 rounded" height="18">
                                     <span class="align-middle">français</span>
                                 </a>
+
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ar" title="Arabic">
                                     <img src="{% static 'images/flags/ae.svg' %}" alt="user-image" class="me-2 rounded" height="18">
@@ -294,14 +300,14 @@
                                                 </div>
                                             </div>
                                             <h5 class="mb-3">Your Cart is Empty!</h5>
-                                            <a href="#" class="btn btn-success w-md mb-3">Shop Now</a>
+                                            <a href="" class="btn btn-success w-md mb-3">Shop Now</a>
                                         </div>
                                         <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                             <div class="d-flex align-items-center">
                                                 <img src="{% static 'images/products/img-1.png' %}" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
-                                                        <a href="{% url 'dashboards:dashboard' %}" class="text-reset">Branded
+                                                        <a href="" class="text-reset">Branded
                                                             T-Shirts</a>
                                                     </h6>
                                                     <p class="mb-0 fs-12 text-muted">
@@ -322,7 +328,7 @@
                                                 <img src="{% static 'images/products/img-2.png' %}" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
-                                                        <a href="{% url 'dashboards:dashboard' %}" class="text-reset">Bentwood Chair</a>
+                                                        <a href="" class="text-reset">Bentwood Chair</a>
                                                     </h6>
                                                     <p class="mb-0 fs-12 text-muted">
                                                         Quantity: <span>5 x $18</span>
@@ -342,7 +348,7 @@
                                                 <img src="{% static 'images/products/img-3.png' %}" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
-                                                        <a href="{% url 'dashboards:dashboard' %}" class="text-reset">
+                                                        <a href="" class="text-reset">
                                                             Borosil Paper Cup</a>
                                                     </h6>
                                                     <p class="mb-0 fs-12 text-muted">
@@ -363,7 +369,7 @@
                                                 <img src="{% static 'images/products/img-6.png' %}" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
-                                                        <a href="{% url 'dashboards:dashboard' %}" class="text-reset">Gray
+                                                        <a href="" class="text-reset">Gray
                                                             Styled T-Shirt</a>
                                                     </h6>
                                                     <p class="mb-0 fs-12 text-muted">
@@ -384,7 +390,7 @@
                                                 <img src="{% static 'images/products/img-5.png' %}" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1 fs-14">
-                                                        <a href="{% url 'dashboards:dashboard' %}" class="text-reset">Stillbird Helmet</a>
+                                                        <a href="" class="text-reset">Stillbird Helmet</a>
                                                     </h6>
                                                     <p class="mb-0 fs-12 text-muted">
                                                         Quantity: <span>2 x $495</span>
@@ -408,7 +414,7 @@
                                         </div>
                                     </div>
 
-                                    <a href="{% url 'dashboards:dashboard' %}" class="btn btn-success text-center w-100">
+                                    <a href="" class="btn btn-success text-center w-100">
                                         Checkout
                                     </a>
                                 </div>
@@ -510,7 +516,7 @@
                                             <div class="text-reset notification-item d-block dropdown-item position-relative">
                                                 <div class="d-flex">
                                                     <img src="{% static 'images/users/avatar-2.jpg'%}"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                        class="me-3 rounded-circle avatar-xs flex-shrink-0" alt="user-pic">
                                                     <div class="flex-grow-1">
                                                         <a href="#!" class="stretched-link"><h6 class="mt-0 mb-1 fs-13 fw-semibold">Angela Bernier</h6></a>
                                                         <div class="fs-13 text-muted">
@@ -523,8 +529,8 @@
                                                     </div>
                                                     <div class="px-2 fs-15">
                                                         <div class="form-check notification-check">
-                                                            <input class="form-check-input" type="checkbox" value="" id="all-notification-check01">
-                                                            <label class="form-check-label" for="all-notification-check01"></label>
+                                                            <input class="form-check-input" type="checkbox" value="" id="all-notification-check02">
+                                                            <label class="form-check-label" for="all-notification-check02"></label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -532,7 +538,7 @@
 
                                             <div class="text-reset notification-item d-block dropdown-item position-relative">
                                                 <div class="d-flex">
-                                                    <div class="avatar-xs me-3">
+                                                    <div class="avatar-xs me-3 flex-shrink-0">
                                                         <span
                                                             class="avatar-title bg-danger-subtle text-danger rounded-circle fs-16">
                                                             <i class='bx bx-message-square-dots'></i>
@@ -557,7 +563,7 @@
 
                                             <div class="text-reset notification-item d-block dropdown-item position-relative">
                                                 <div class="d-flex">
-                                                    <img src="{% static 'images/users/avatar-8.jpg'%}" class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                    <img src="{% static 'images/users/avatar-8.jpg'%}" class="me-3 rounded-circle avatar-xs flex-shrink-0" alt="user-pic">
                                                     <div class="flex-grow-1">
                                                         <a href="#!" class="stretched-link"><h6 class="mt-0 mb-1 fs-13 fw-semibold">Maureen Gibson</h6></a>
                                                         <div class="fs-13 text-muted">
@@ -669,8 +675,8 @@
                                                     </div>
                                                     <div class="px-2 fs-15">
                                                         <div class="form-check notification-check">
-                                                            <input class="form-check-input" type="checkbox" value="" id="all-notification-check01">
-                                                            <label class="form-check-label" for="all-notification-check01"></label>
+                                                            <input class="form-check-input" type="checkbox" value="" id="messages-notification-check04">
+                                                            <label class="form-check-label" for="messages-notification-check04"></label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -688,9 +694,6 @@
                                         <div class="d-flex text-muted justify-content-center">
                                             Select <div id="select-content" class="text-body fw-semibold px-1">0</div> Result <button type="button" class="btn btn-link link-danger p-0 ms-3" data-bs-toggle="modal" data-bs-target="#removeNotificationModal">Remove</button>
                                         </div>
-                                        <div class="text-center pb-5 mt-2">
-                                            <h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications </h6>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -703,7 +706,7 @@
                                     <img class="rounded-circle header-profile-user" src="{% static 'images/users/avatar-1.jpg'%}"
                                         alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
-                                        <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">{{user.username}}</span>
+                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{user.username}}</span>
                                         <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Founder</span>
                                     </span>
                                 </span>
@@ -711,41 +714,41 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
                                 <h6 class="dropdown-header">Welcome Anna!</h6>
-                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
+                                <a class="dropdown-item" href=""><i
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Profile</span></a>
-                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
+                                <a class="dropdown-item" href=""><i
                                         class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Messages</span></a>
-                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
+                                <a class="dropdown-item" href=""><i
                                         class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Taskboard</span></a>
-                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
+                                <a class="dropdown-item" href=""><i
                                         class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Help</span></a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
+                                <a class="dropdown-item" href=""><i
                                         class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Balance : <b>$5971.67</b></span></a>
-                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><span
+                                <a class="dropdown-item" href=""><span
                                         class="badge bg-success-subtle text-success mt-1 float-end">New</span><i
                                         class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Settings</span></a>
-                                <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}"><i
+                                <a class="dropdown-item" href=""><i
                                         class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Lock screen</span></a>
                                 {% if user.is_authenticated %}
                                     {% if user.has_usable_password %}
-                                        <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}">
+                                        <a class="dropdown-item" href="">
                                             <i class="mdi mdi-key text-muted fs-16 align-middle me-1"></i>
                                             <span class="align-middle" data-key="t-change-password">change password</span>
                                         </a>
                                     {% else %}
-                                        <a class="dropdown-item" href=>
+                                        <a class="dropdown-item" href="">
                                             <i class="mdi mdi-key text-muted fs-16 align-middle me-1"></i>
-                                            <span class="align-middle" data-key="t-set-password">Set Password</span>
+                                            <span class="align-middle" data-key="t-set-password">set password</span>
                                         </a>
                                     {% endif %}
-                                        <a class="dropdown-item" href="{% url 'dashboards:dashboard' %}">
+                                        <a class="dropdown-item" href="">
                                             <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
                                             <span class="align-middle" data-key="t-logout">Logout</span>
                                         </a>
@@ -801,4 +804,3 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 {% endblock header %}
-
