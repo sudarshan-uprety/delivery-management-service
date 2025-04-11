@@ -26,68 +26,101 @@
                         <!-- Striped Rows -->
                         <div class="col-lg-12">
                             <div class="col-md-auto ms-auto">
-                                <div class="d-flex gap-2">
-                                    <div class="search-box">
-                                        <input type="text" class="form-control search" placeholder="Search for users...">
-                                        <i class="ri-search-line search-icon"></i>
+                                <form>
+                                    <div class="card-body border border-dashed border-end-0 border-start-0">
+                                        <form>
+                                            <div class="row g-3">
+                                                <div class="col-xxl-5 col-sm-6">
+                                                    <div class="search-box">
+                                                        <input type="text" class="form-control search"
+                                                            placeholder="Search for order ID, customer, order status or something...">
+                                                        <i class="ri-search-line search-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+<!--                                                <div class="col-xxl-2 col-sm-6">-->
+<!--                                                    <div>-->
+<!--                                                        <input type="text" class="form-control" data-provider="flatpickr"-->
+<!--                                                            data-date-format="d M, Y" data-range-date="true"-->
+<!--                                                            id="demo-datepicker" placeholder="Select date">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                                <!--end col-->
+                                                <div class="col-xxl-2 col-sm-4">
+                                                    <div>
+                                                        <select class="form-control" data-choices data-choices-search-false
+                                                            name="choices-single-default" id="idStatus">
+                                                            <option value="">Status</option>
+                                                            <option value="all" selected>All</option>
+                                                            <option value="Pending">Pending</option>
+                                                            <option value="Inprogress">Inprogress</option>
+                                                            <option value="Cancelled">Cancelled</option>
+                                                            <option value="Pickups">Pickups</option>
+                                                            <option value="Returns">Returns</option>
+                                                            <option value="Delivered">Delivered</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+                                                <div class="col-xxl-2 col-sm-4">
+                                                    <div>
+                                                        <select class="form-control" data-choices data-choices-search-false
+                                                            name="choices-single-default" id="idPayment">
+                                                            <option value="">Select Payment</option>
+                                                            <option value="all" selected>All</option>
+                                                            <option value="Mastercard">Mastercard</option>
+                                                            <option value="Paypal">Paypal</option>
+                                                            <option value="Visa">Visa</option>
+                                                            <option value="COD">COD</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+                                                <div class="col-xxl-1 col-sm-4">
+                                                    <div>
+                                                        <button type="submit" class="btn btn-primary w-100"
+                                                            onclick="SearchData();"> <i
+                                                                class="ri-equalizer-fill me-1 align-bottom"></i>
+                                                            Filters
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+                                            </div>
+                                            <!--end row-->
+                                        </form>
                                     </div>
-                                    <button class="btn btn-success"><i class="ri-equalizer-line align-bottom me-1"></i> Filters</button>
-                                </div>
+                                </form>
                             </div><!--end col-->
-                            <div class="noresult" style="display: none">
-                                <div class="text-center">
-                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                    <h5 class="mt-2">Sorry! No Result Found</h5>
-                                    <p class="text-muted mb-0">We've searched more than 150+ API Keys We did not find any API for you search.</p>
-                                </div>
-                            </div>
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th scope="col">Id</th>
-                                        <th scope="col">Customer</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Invoice</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Full Name</th>
+                                        <th scope="col">Role</th>
+                                        <th scope="col">Group</th>
+                                        <th scope="col">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                {% for user in object_list %}
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Bobby Davis</td>
-                                        <td>Nov 14, 2021</td>
-                                        <td>$2,410</td>
-                                        <td><span class="badge bg-success">Confirmed</span></td>
+                                        <td>{{user.email}}</td>
+                                        <td>{{user.full_name}}</td>
+                                        <td>{{user.role}}</td>
+                                        <td>{{user.groups}}</td>
+                                        <td><span class="badge bg-success">{{user.is_active}}</span></td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Christopher Neal</td>
-                                        <td>Nov 21, 2021</td>
-                                        <td>$1,450</td>
-                                        <td><span class="badge bg-warning">Waiting</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Monkey Karry</td>
-                                        <td>Nov 24, 2021</td>
-                                        <td>$3,500</td>
-                                        <td><span class="badge bg-success">Confirmed</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Aaron James</td>
-                                        <td>Nov 25, 2021</td>
-                                        <td>$6,875</td>
-                                        <td><span class="badge bg-danger">Cancelled</span></td>
-                                    </tr>
+                                {% endfor %}
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
             {% block footer %}
