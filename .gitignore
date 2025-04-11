@@ -101,3 +101,4 @@ terraform/.terraform
 uploads/
 /uploads/
 #
+db.sqlite3
