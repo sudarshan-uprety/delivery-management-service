@@ -97,11 +97,7 @@ AUTH_USER_MODEL = 'users.User'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {**env.db('DATABASE_CREDENTIALS'),
-    'CONN_MAX_AGE': env.int('CONN_MAX_AGE')
-    }
-}
+DATABASES = {'default': {**env.db('DATABASE_CREDENTIALS'), 'CONN_MAX_AGE': env.int('CONN_MAX_AGE')}}
 
 
 # Password validation
