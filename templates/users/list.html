@@ -11,125 +11,166 @@
 {% endblock extra_css %}
 
 {% block content %}
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="main-content">
 
-            <div class="page-content">
-                <div class="container-fluid">
-                {% block page-title %}
-                {% include "partials/page-title.html" with page_title="Base UI" title="User list" %}
-                {% endblock page-title %}
 
-                    <div class="row">
-                        <!-- Striped Rows -->
-                        <div class="col-lg-12">
-                            <div class="col-md-auto ms-auto">
-                                <form>
-                                    <div class="card-body border border-dashed border-end-0 border-start-0">
-                                        <form>
-                                            <div class="row g-3">
-                                                <div class="col-xxl-5 col-sm-6">
-                                                    <div class="search-box">
-                                                        <input type="text" class="form-control search"
-                                                            placeholder="Search for order ID, customer, order status or something...">
-                                                        <i class="ri-search-line search-icon"></i>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-<!--                                                <div class="col-xxl-2 col-sm-6">-->
-<!--                                                    <div>-->
-<!--                                                        <input type="text" class="form-control" data-provider="flatpickr"-->
-<!--                                                            data-date-format="d M, Y" data-range-date="true"-->
-<!--                                                            id="demo-datepicker" placeholder="Select date">-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-                                                <!--end col-->
-                                                <div class="col-xxl-2 col-sm-4">
-                                                    <div>
-                                                        <select class="form-control" data-choices data-choices-search-false
-                                                            name="choices-single-default" id="idStatus">
-                                                            <option value="">Status</option>
-                                                            <option value="all" selected>All</option>
-                                                            <option value="Pending">Pending</option>
-                                                            <option value="Inprogress">Inprogress</option>
-                                                            <option value="Cancelled">Cancelled</option>
-                                                            <option value="Pickups">Pickups</option>
-                                                            <option value="Returns">Returns</option>
-                                                            <option value="Delivered">Delivered</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-2 col-sm-4">
-                                                    <div>
-                                                        <select class="form-control" data-choices data-choices-search-false
-                                                            name="choices-single-default" id="idPayment">
-                                                            <option value="">Select Payment</option>
-                                                            <option value="all" selected>All</option>
-                                                            <option value="Mastercard">Mastercard</option>
-                                                            <option value="Paypal">Paypal</option>
-                                                            <option value="Visa">Visa</option>
-                                                            <option value="COD">COD</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-1 col-sm-4">
-                                                    <div>
-                                                        <button type="submit" class="btn btn-primary w-100"
-                                                            onclick="SearchData();"> <i
-                                                                class="ri-equalizer-fill me-1 align-bottom"></i>
-                                                            Filters
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0">Users</h4>
+
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Users</a></li>
+                        <li class="breadcrumb-item active">List</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header align-items-center d-flex">
+                    <h4 class="card-title mb-0 flex-grow-1">Users</h4>
+                    <div class="flex-shrink-0">
+                        {% if perms.users.add_user %}
+                        <div class="form-check form-switch form-switch-right form-switch-md">
+                            <a type="button" class="btn btn-primary waves-effect waves-light shadow-none" href="{% url 'users:users-list' %}">Add User</a>
+                        </div>
+                        {%endif%}
+                    </div>
+                </div><!-- end card header -->
+
+
+                <div class="card-body border border-dashed border-end-0 border-start-0">
+                    <form method="get">
+                        <div class="row g-3">
+                                            <div class="col-lg-2">
+                                                <p1>Name</p1>
+                                                <select id="names" class="js-example-basic-multiple" name="names" multiple>
+                                                    {% for name in names %}
+                                                        <option value="{{ name.id }}" name="{{name.full_name}}">
+                                                            {{ name.full_name }}
+                                                        </option>
+                                                    {% endfor %}
+                                                </select>
                                             </div>
-                                            <!--end row-->
-                                        </form>
-                                    </div>
-                                </form>
-                            </div><!--end col-->
-                            <div class="card">
-                                <div class="card-header align-items-center d-flex">
-                            <table class="table table-striped">
-                                <thead>
+                                            <div class="col-lg-2">
+                                                <p1>Roles</p1>
+                                                <select id="roles" class="js-example-basic-multiple" name="roles" multiple>
+                                                    {% for group in groups %}
+                                                        <option value="{{ group.id }}" role="{{group.name}}">
+                                                            {{ group.name }}
+                                                        </option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                           <div class="col-lg-2">
+                                            <br>
+                                                <button type="submit" class="btn btn-primary w-10">
+                                                    <i class="ri-equalizer-fill me-1 align-bottom"></i>Filter
+                                                </button>
+                                            </div>
+                        </div>       
+                                      
+                      
+                       
+                    </form>
+                </div>
+
+
+
+                <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table align-middle table-nowrap mb-0">
+                                <thead class="table-light">
                                     <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Email</th>
+                                        <th scope="col">SN</th>
                                         <th scope="col">Full Name</th>
-                                        <th scope="col">Role</th>
-                                        <th scope="col">Group</th>
+                                        <th scope="col">Email</th> 
+                                        <th scope="col">Position</th>
+                                        <th scope="col">Is Active</th>
                                         <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {% for user in object_list %}
+									{% for object in object_list %}
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>{{user.email}}</td>
-                                        <td>{{user.full_name}}</td>
-                                        <td>{{user.role}}</td>
-                                        <td>{{user.groups}}</td>
-                                        <td><span class="badge bg-success">{{user.is_active}}</span></td>
+                                        <td>{{ forloop.counter|add:page_index }}</td>
+										<td>
+                                            <div class="d-flex align-items-center gap-2">
+                                            {%if object.image != ''%}
+                                            <img src="https://{{aws_bucket}}/{{object.image}}" class="rounded-circle" style="width:30px; aspect-ratio:1/1;">
+                                            {%else%}
+                                            <div class="avatar-title rounded-circle bg-light text-primary" style="width:30px; aspect-ratio:1/1; text-transform:uppercase;">
+                                            {{object.full_name.0}}
+                                            </div> 
+                                            {%endif%} <span>{{ object.full_name|safe|truncatechars:50 }}</span>
+                                        </div>
+                                        </td>
+                                        <td>{{ object.email|safe|truncatechars:50 }}</td>
+                                        {%if object.groups.all.count == 0%}
+                                        <td>None
+                                        {%else%}
+                                        <td>{%for group in object.groups.all%}{{group.name}}{% if not forloop.last %}, {% endif %} {%endfor%}
+                                        {%endif%}
+
+                                        <td>
+                                            <div class="form-check form-switch form-switch-right form-switch-md" id="toggle-switch" >
+                                            {% csrf_token %} 
+                                            {% if request.user.id != object.id%}
+                                            <input  type="checkbox" class="form-check-input code-switcher toggle-switch-active" id="toggle-switch-active" data-item-id="{{ object.id }}" {% if object.is_verified %}checked{% endif %}>
+                                            {% endif %}
+                                            <span class="slider"></span>
+                                            </div>
+                                        </td>
+
+
+                                        {%if object.is_verified%}
+                                        <td> <i class="ri-checkbox-circle-line align-middle text-success" style="font-size:1.5rem;"></i></td>
+                                        {%else%}
+                                        <td> <i class="ri-close-circle-line align-middle text-danger" style="font-size:1.5rem;"></i></td>
+                                        {%endif%}
+                            
+										
+										
+                                    
+                                        {% comment %} <td>
+                                            <div class="btn-group shadow" role="group" aria-label="Basic example">
+                                                <form method="POST" action="{% url 'users:users-list' object.pk %}">
+                                                    {% csrf_token %}
+                                                    {% if perms.users.change_user %}
+                                                    <a href="{% url 'users:users-list' object.pk %}"><button type="button" class="btn btn-primary waves-effect waves-light"><i class="ri-edit-line"></i></button></a>
+                                                    {%endif%}
+                                                    {% if perms.users.delete_user %}
+                                                    <a href="{% url 'users:users-list' object.pk %}"><button type="button" class="delete-link btn btn-danger btn-icon waves-effect" data-tooltip="tooltip" title="Delete"><i class="ri-delete-bin-6-line"></i></button></a>
+                                                    {%endif%}
+                                                </form>
+                                            </div>
+                                        </td> {% endcomment %}
                                     </tr>
-                                {% endfor %}
+                                    {% endfor %}
+                                 
                                 </tbody>
                             </table>
+                            <!-- end table -->
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Page-content -->
-            {% block footer %}
-            {% include "partials/footer.html" %}
-            {% endblock footer %}
+                        <!-- end table responsive -->
+                </div><!-- end card-body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+    </div>
+    <!--end row-->
 
-        </div>
+</div>
 
-        <!-- end main content-->
 {% endblock content %}
 
 {% block extra_js %}
