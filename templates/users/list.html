@@ -50,36 +50,33 @@
                 <div class="card-body border border-dashed border-end-0 border-start-0">
                     <form method="get">
                         <div class="row g-3">
-                                            <div class="col-lg-2">
-                                                <p1>Name</p1>
-                                                <select id="names" class="js-example-basic-multiple" name="names" multiple>
-                                                    {% for name in names %}
-                                                        <option value="{{ name.id }}" name="{{name.full_name}}">
-                                                            {{ name.full_name }}
-                                                        </option>
-                                                    {% endfor %}
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-2">
-                                                <p1>Roles</p1>
-                                                <select id="roles" class="js-example-basic-multiple" name="roles" multiple>
-                                                    {% for group in groups %}
-                                                        <option value="{{ group.id }}" role="{{group.name}}">
-                                                            {{ group.name }}
-                                                        </option>
-                                                    {% endfor %}
-                                                </select>
-                                            </div>
-                                           <div class="col-lg-2">
-                                            <br>
-                                                <button type="submit" class="btn btn-primary w-10">
-                                                    <i class="ri-equalizer-fill me-1 align-bottom"></i>Filter
-                                                </button>
-                                            </div>
-                        </div>       
-                                      
-                      
-                       
+                            <div class="col-lg-2">
+                                <p1>Name</p1>
+                                <select id="names" class="js-example-basic-multiple" name="names" multiple>
+                                    {% for name in names %}
+                                        <option value="{{ name.id }}" name="{{name.full_name}}">
+                                            {{ name.full_name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-lg-2">
+                                <p1>Roles</p1>
+                                <select id="roles" class="js-example-basic-multiple" name="roles" multiple>
+                                    {% for group in groups %}
+                                        <option value="{{ group.id }}" role="{{group.name}}">
+                                            {{ group.name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-lg-2">
+                                <br>
+                                    <button type="submit" class="btn btn-primary w-10">
+                                        <i class="ri-equalizer-fill me-1 align-bottom"></i>Filter
+                                    </button>
+                            </div>
+                        </div>        
                     </form>
                 </div>
 
@@ -106,14 +103,14 @@
                                         <td>{{ forloop.counter|add:page_index }}</td>
 										<td>
                                             <div class="d-flex align-items-center gap-2">
-                                            {%if object.image != ''%}
-                                            <img src="https://{{aws_bucket}}/{{object.image}}" class="rounded-circle" style="width:30px; aspect-ratio:1/1;">
-                                            {%else%}
-                                            <div class="avatar-title rounded-circle bg-light text-primary" style="width:30px; aspect-ratio:1/1; text-transform:uppercase;">
-                                            {{object.full_name.0}}
-                                            </div> 
-                                            {%endif%} <span>{{ object.full_name|safe|truncatechars:50 }}</span>
-                                        </div>
+                                                {%if object.image != ''%}
+                                                    <img src="https://{{aws_bucket}}/{{object.image}}" class="rounded-circle" style="width:30px; aspect-ratio:1/1;">
+                                                {%else%}
+                                                    <div class="avatar-title rounded-circle bg-light text-primary" style="width:30px; aspect-ratio:1/1; text-transform:uppercase;">
+                                                    {{object.full_name.0}}
+                                                </div> 
+                                                {%endif%} <span>{{ object.full_name|safe|truncatechars:50 }}</span>
+                                            </div>
                                         </td>
                                         <td>{{ object.email|safe|truncatechars:50 }}</td>
                                         {%if object.groups.all.count == 0%}
@@ -124,19 +121,19 @@
 
                                         <td>
                                             <div class="form-check form-switch form-switch-right form-switch-md" id="toggle-switch" >
-                                            {% csrf_token %} 
-                                            {% if request.user.id != object.id%}
-                                            <input  type="checkbox" class="form-check-input code-switcher toggle-switch-active" id="toggle-switch-active" data-item-id="{{ object.id }}" {% if object.is_verified %}checked{% endif %}>
-                                            {% endif %}
-                                            <span class="slider"></span>
+                                                {% csrf_token %} 
+                                                {% if request.user.id != object.id%}
+                                                    <input  type="checkbox" class="form-check-input code-switcher toggle-switch-active" id="toggle-switch-active" data-item-id="{{ object.id }}" {% if object.is_verified %}checked{% endif %}>
+                                                {% endif %}
+                                                <span class="slider"></span>
                                             </div>
                                         </td>
 
 
                                         {%if object.is_verified%}
-                                        <td> <i class="ri-checkbox-circle-line align-middle text-success" style="font-size:1.5rem;"></i></td>
+                                            <td> <i class="ri-checkbox-circle-line align-middle text-success" style="font-size:1.5rem;"></i></td>
                                         {%else%}
-                                        <td> <i class="ri-close-circle-line align-middle text-danger" style="font-size:1.5rem;"></i></td>
+                                            <td> <i class="ri-close-circle-line align-middle text-danger" style="font-size:1.5rem;"></i></td>
                                         {%endif%}
                             
 										
