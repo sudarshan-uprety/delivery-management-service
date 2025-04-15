@@ -103,20 +103,14 @@
                                         <td>{{ forloop.counter|add:page_index }}</td>
 										<td>
                                             <div class="d-flex align-items-center gap-2">
-                                                {%if object.image != ''%}
-                                                    <img src="https://{{aws_bucket}}/{{object.image}}" class="rounded-circle" style="width:30px; aspect-ratio:1/1;">
-                                                {%else%}
-                                                    <div class="avatar-title rounded-circle bg-light text-primary" style="width:30px; aspect-ratio:1/1; text-transform:uppercase;">
-                                                    {{object.full_name.0}}
-                                                </div> 
-                                                {%endif%} <span>{{ object.full_name|safe|truncatechars:50 }}</span>
+                                                <span>{{ object.full_name|safe|truncatechars:50 }}</span>
                                             </div>
                                         </td>
                                         <td>{{ object.email|safe|truncatechars:50 }}</td>
                                         {%if object.groups.all.count == 0%}
-                                        <td>None
+                                            <td>None
                                         {%else%}
-                                        <td>{%for group in object.groups.all%}{{group.name}}{% if not forloop.last %}, {% endif %} {%endfor%}
+                                            <td>{%for group in object.groups.all%}{{group.name}}{% if not forloop.last %}, {% endif %} {%endfor%}
                                         {%endif%}
 
                                         <td>

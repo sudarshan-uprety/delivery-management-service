@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, FormView
 from django.shortcuts import render
+from django.contrib.auth.models import Group
 
 from apps.users.mixins import LoginMixin, AuthMixin, PermissionRequiredMixin
 from apps.users import forms
@@ -35,6 +36,7 @@ class UserListView(AuthMixin, PermissionRequiredMixin, ListView):
         items_per_page = 15
         context['page_index'] = (int(page_number)-1)*items_per_page
         context['names'] = User.objects.filter(is_archived=False)
+        context['groups'] = Group.objects.all()
         return context 
 
     def get_queryset(self):
